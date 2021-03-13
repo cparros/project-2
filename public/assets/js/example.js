@@ -64,7 +64,6 @@ const refreshExamples = function () {
 
   choice = $('#workoutDropdown li')
   choice.on('click', function() {
-
   let choiceText = $(this).text()
   $('#dropdownMenuButton').text(choiceText)
   console.log(choiceText)
