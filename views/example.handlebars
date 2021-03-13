@@ -18,13 +18,13 @@
             </div>
           </div>
           <div class="form-group">
-            <label for="example-description">Workout Description. (What did you do?)</label>
+            <label for="example-description">Workout Description. <em>(What did you do?)</em></label>
             <textarea class="form-control" id="example-description" aria-describedby="example-description"
-              placeholder="Enter Example Description"></textarea>
+              placeholder="Enter Workout Description Here!"></textarea>
           </div>
           <button id="submit" class="btn btn-primary float-right">Submit</button>
         </form>
-        <h4>Examples belong to this user:</h4>
+        <h4>Workouts belonging to this user:</h4>
         <ul id="example-list" class="list-group">
           {{#each examples}}
           <li data-id="{{this.id}}" class="list-group-item">
