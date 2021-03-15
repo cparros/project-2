@@ -1,8 +1,9 @@
 // Get references to page elements
-const $exampleText = $('#example-text');
+const $exampleText = $('#workoutDropdown');
 const $exampleDescription = $('#example-description');
 const $submitBtn = $('#submit');
 const $exampleList = $('#example-list');
+let choice;
 
 // The API object contains methods for each kind of request we'll make
 const API = {
@@ -59,16 +60,29 @@ const refreshExamples = function () {
   });
 };
 
+//Save Selection in dropdown text
+
+  choice = $('#workoutDropdown li')
+  choice.on('click', function() {
+  let choiceText = $(this).text()
+  $('#dropdownMenuButton').text(choiceText)
+  console.log(choiceText)
+})
+
+
+
+
 // handleFormSubmit is called whenever we submit a new example
 // Save the new example to the db and refresh the list
 const handleFormSubmit = function (event) {
   event.preventDefault();
 
   const example = {
-    text: $exampleText.val().trim(),
+    text: $('#dropdownMenuButton').text(),
     description: $exampleDescription.val().trim(),
     UserId: window.userId
   };
+  console.log(example.description)
 
   if (!(example.text && example.description)) {
     alert('You must enter an example text and description!');
