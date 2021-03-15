@@ -9,7 +9,7 @@ module.exports = {
   },
   test: {
     username: process.env.TU,
-    password: process.env.TP || null,
+    password: process.env.TP,
     database: 'project2_test',
     host: 'localhost',
     port: 3306,
