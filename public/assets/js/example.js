@@ -44,7 +44,7 @@ const refreshWorkouts = function () {
           class: 'list-group-item',
           'data-id': workout.id
         })
-        .append($a);
+        .append($workouts);
 
       const $button = $('<button>')
         .addClass('btn btn-danger float-right delete')
