@@ -57,7 +57,7 @@ module.exports = (db) => {
   });
 
   // Load example index page
-  router.get('/workout', function (req, res) {
+  router.get('/example', function (req, res) {
     if (req.isAuthenticated()) {
       db.Example.findAll({ where: { UserId: req.session.passport.user.id }, raw: true }).then(function (dbExamples) {
         res.render('example', {
@@ -99,7 +99,6 @@ module.exports = (db) => {
     });
   });
 
-  
   // Render 404 page for any unmatched routes
   router.get('*', function (req, res) {
     res.render('404');
