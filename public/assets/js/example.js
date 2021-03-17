@@ -56,7 +56,7 @@ const refreshWorkouts = function () {
     });
 
     $workoutList.empty();
-    $workoutList.append($examples);
+    $workoutList.append($workouts);
   });
 };
 
