@@ -95,6 +95,7 @@ const handleFormSubmit = function (event) {
 
   $workoutText.val('');
   $workoutDescription.val('');
+  location.reload()
 };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
@@ -105,6 +106,7 @@ const handleDeleteBtnClick = function () {
   API.deleteWorkout(idToDelete).then(function () {
     refreshWorkouts();
   });
+  location.reload()
 };
 
 // Add event listeners to the submit and delete buttons
