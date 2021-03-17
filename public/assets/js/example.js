@@ -1,50 +1,50 @@
 // Get references to page elements
-const $exampleText = $('#workoutDropdown');
-const $exampleDescription = $('#example-description');
+const $workoutText = $('#workoutDropdown');
+const $workoutDescription = $('#example-description');
 const $submitBtn = $('#submit');
-const $exampleList = $('#example-list');
+const $workoutList = $('#example-list');
 let choice;
 
 // The API object contains methods for each kind of request we'll make
 const API = {
-  saveExample: function (example) {
+  saveWorkout: function (example) {
     return $.ajax({
       headers: {
         'Content-Type': 'application/json'
       },
       type: 'POST',
-      url: 'api/examples',
+      url: 'api/workouts',
       data: JSON.stringify(example)
     });
   },
-  getExamples: function () {
+  getWorkout: function () {
     return $.ajax({
-      url: 'api/examples',
+      url: 'api/workouts',
       type: 'GET'
     });
   },
-  deleteExample: function (id) {
+  deleteWorkout: function (id) {
     return $.ajax({
-      url: 'api/examples/' + id,
+      url: 'api/workouts/' + id,
       type: 'DELETE'
     });
   }
 };
 
 // refreshExamples gets new examples from the db and repopulates the list
-const refreshExamples = function () {
-  API.getExamples().then(function (data) {
-    const $examples = data.map(function (example) {
+const refreshWorkouts = function () {
+  API.getWorkout().then(function (data) {
+    const $workouts = data.map(function (workout) {
       const $a = $('<a>')
-        .text(example.text)
-        .attr('href', '/example/' + example.id);
+        .text(workout.text)
+        .attr('href', '/workout/' + workout.id);
 
       const $li = $('<li>')
         .attr({
           class: 'list-group-item',
-          'data-id': example.id
+          'data-id': workout.id
         })
-        .append($a);
+        .append($workouts);
 
       const $button = $('<button>')
         .addClass('btn btn-danger float-right delete')
@@ -55,8 +55,8 @@ const refreshExamples = function () {
       return $li;
     });
 
-    $exampleList.empty();
-    $exampleList.append($examples);
+    $workoutList.empty();
+    $workoutList.append($workouts);
   });
 };
 
@@ -77,24 +77,25 @@ const refreshExamples = function () {
 const handleFormSubmit = function (event) {
   event.preventDefault();
 
-  const example = {
+  const workout = {
     text: $('#dropdownMenuButton').text(),
-    description: $exampleDescription.val().trim(),
+    description: $workoutDescription.val().trim(),
     UserId: window.userId
   };
-  console.log(example.description)
+  console.log(workout.description)
 
-  if (!(example.text && example.description)) {
+  if (!(workout.text && workout.description)) {
     alert('You must enter an example text and description!');
     return;
   }
 
-  API.saveExample(example).then(function () {
-    refreshExamples();
+  API.saveWorkout(workout).then(function () {
+    refreshWorkouts();
   });
 
-  $exampleText.val('');
-  $exampleDescription.val('');
+  $workoutText.val('');
+  $workoutDescription.val('');
+  location.reload()
 };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
@@ -102,11 +103,12 @@ const handleFormSubmit = function (event) {
 const handleDeleteBtnClick = function () {
   const idToDelete = $(this).parent().attr('data-id');
 
-  API.deleteExample(idToDelete).then(function () {
-    refreshExamples();
+  API.deleteWorkout(idToDelete).then(function () {
+    refreshWorkouts();
   });
+  location.reload()
 };
 
 // Add event listeners to the submit and delete buttons
 $submitBtn.on('click', handleFormSubmit);
-$exampleList.on('click', '.delete', handleDeleteBtnClick);
+$workoutList.on('click', '.delete', handleDeleteBtnClick);

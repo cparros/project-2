@@ -57,14 +57,14 @@ module.exports = (db) => {
   });
 
   // Load example index page
-  router.get('/example', function (req, res) {
+  router.get('/workout', function (req, res) {
     if (req.isAuthenticated()) {
-      db.Example.findAll({ where: { UserId: req.session.passport.user.id }, raw: true }).then(function (dbExamples) {
-        res.render('example', {
+      db.Workout.findAll({ where: { UserId: req.session.passport.user.id }, raw: true }).then(function (dbWorkouts) {
+        res.render('workout', {
           userInfo: req.session.passport.user,
           isloggedin: req.isAuthenticated(),
           msg: 'Keep track of your workout and save it below!',
-          examples: dbExamples
+          workouts: dbWorkouts
         });
       });
     } else {
@@ -73,13 +73,13 @@ module.exports = (db) => {
   });
 
   // Load example page and pass in an example by id
-  router.get('/example/:id', function (req, res) {
+  router.get('/workout/:id', function (req, res) {
     if (req.isAuthenticated()) {
-      db.Example.findOne({ where: { id: req.params.id }, raw: true }).then(function (dbExample) {
-        res.render('example-detail', {
+      db.Workout.findOne({ where: { id: req.params.id }, raw: true }).then(function (dbWorkout) {
+        res.render('workout-detail', {
           userInfo: req.session.passport.user,
           isloggedin: req.isAuthenticated(),
-          example: dbExample
+          workout: dbWorkout
         });
       });
     } else {
