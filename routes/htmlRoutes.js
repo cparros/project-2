@@ -1,5 +1,7 @@
 const router = require("express").Router();
+const Sequelize = require("sequelize");
 
+const Op = Sequelize.Op;
 module.exports = (db) => {
   // Load register page
   router.get("/register", (req, res) => {
@@ -41,6 +43,22 @@ module.exports = (db) => {
     } else {
       res.render("dashboard");
     }
+  });
+  //load feed page
+
+  router.get("/feed", (req, res) => {
+    db.Workout.findAll({
+      where: {
+        id: {
+          [Op.ne]: 0,
+        },
+      },
+      include: { model: db.User },
+    }).then((allWorkouts) => {
+      res.render("feed", {
+        allWorkouts: allWorkouts,
+      });
+    });
   });
 
   // Load dashboard page

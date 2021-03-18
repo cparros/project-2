@@ -1,0 +1,18 @@
+{{> nav/nav-block}}
+<div class="container">
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+            {{#each allExamples}}
+            <div class="card" >
+                <div class="card-body">
+                    <h5 class="card-title">{{this.User.dataValues.firstName}} did {{this.dataValues.text}} </h5>
+                    <h6 class="card-subtitle mb-2 text-muted">on{{this.dataValues.updatedAt}}</h6>
+                    <p class="card-text">{{this.dataValues.description}}</p>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        <div class="col-2"></div>
+    </div>
+</div>

@@ -8,7 +8,7 @@ module.exports = (db, app, passport) => {
   app.use(
     session({
       key: "userId",
-      secret: process.env.AUTH_SECRET || "Birdman123!",
+      secret: process.env.AUTH_SECRET || "12345678",
       store: new SequelizeStore({
         db: db.sequelize,
         table: "Session",
