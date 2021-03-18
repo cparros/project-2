@@ -35,6 +35,7 @@ const API = {
 const refreshWorkouts = function () {
   API.getWorkout().then((data) => {
     const $workouts = data.map((workout) => {
+      // eslint-disable-next-line no-unused-vars
       const $a = $("<a>")
         .text(workout.text)
         .attr("href", "/workout/" + workout.id);
@@ -62,6 +63,7 @@ const refreshWorkouts = function () {
 
 //Save Selection in dropdown text
 
+// eslint-disable-next-line prefer-const
 choice = $("#workoutDropdown li");
 choice.on("click", function () {
   const choiceText = $(this).text();
