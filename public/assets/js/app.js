@@ -1,14 +1,20 @@
 $('#add-user').on('click', function (event) {
   event.preventDefault();
 
+  $('#workoutChoice').click(function() {
+    let selText = $('#workoutChoice').text();
+    $('#dropdownMenuButton1').text(selText)
+  });
+
   const newAccount = {
     firstName: $('#inputFirst').val().trim(),
     lastName: $('#inputLast').val().trim(),
     email: $('#inputEmail').val().trim(),
-    password: $('#inputPassword').val().trim()
+    password: $('#inputPassword').val().trim(),
+    workout: $('#dropdownMenuButton1').text()
   };
 
-  if (newAccount.password.length > 0 && newAccount.email.length > 0 && newAccount.password.length > 0 && newAccount.lastName.length > 0 && newAccount.firstName.length > 0) {
+  if (newAccount.workout.length > 0 && newAccount.password.length > 0 && newAccount.email.length > 0 && newAccount.password.length > 0 && newAccount.lastName.length > 0 && newAccount.firstName.length > 0) {
     $.ajax({
       type: 'POST',
       url: '/api/register',
@@ -20,6 +26,8 @@ $('#add-user').on('click', function (event) {
     console.log('**Please fill out entire form**');
     $('#create-err-msg').empty('').text('**Please fill out entire form**');
   }
+  
+  $('#workoutChoice').val('');
 });
 
 $('#update-user').on('click', function (event) {
