@@ -25,6 +25,9 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false
     },
+    workout: {
+      type: DataTypes.STRING
+    },
     isAdmin: {
       type: DataTypes.BOOLEAN,
       defaultValue: false
