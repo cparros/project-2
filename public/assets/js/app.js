@@ -1,3 +1,10 @@
+const choice = $("#workoutChoice li");
+choice.on("click", function () {
+  const choiceText = $(this).text();
+  $("#dropdownMenuButton1").text(choiceText);
+  console.log(choiceText);
+});
+
 $("#add-user").on("click", (event) => {
   event.preventDefault();
 

@@ -1,8 +1,11 @@
 // Get references to page elements
+
 const $workoutText = $("#workoutDropdown");
 const $workoutDescription = $("#example-description");
 const $submitBtn = $("#submit");
 const $workoutList = $("#example-list");
+const $workoutCalories = $("#calories-burned");
+
 let choice;
 
 // The API object contains methods for each kind of request we'll make
@@ -79,9 +82,9 @@ const handleFormSubmit = function (event) {
   const workout = {
     text: $("#dropdownMenuButton").text(),
     description: $workoutDescription.val().trim(),
+    calories: $workoutCalories.val().trim(),
     UserId: window.userId,
   };
-  console.log(workout.description);
 
   if (!(workout.text && workout.description)) {
     alert("You must enter an example text and description!");
@@ -94,6 +97,7 @@ const handleFormSubmit = function (event) {
 
   $workoutText.val("");
   $workoutDescription.val("");
+  $workoutCalories.val("");
   location.reload();
 };
 

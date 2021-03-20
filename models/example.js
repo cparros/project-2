@@ -2,6 +2,7 @@ module.exports = function (sequelize, DataTypes) {
   const Workout = sequelize.define("Workout", {
     text: DataTypes.STRING,
     description: DataTypes.TEXT,
+    calories: DataTypes.INTEGER,
   });
 
   Workout.associate = function (models) {
