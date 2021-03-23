@@ -16,6 +16,16 @@ app.use(express.json());
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
+const hbs = exphbs.create({});
+hbs.handlebars.registerHelper({
+  assemble: {
+    options: {
+      // Assemble will automatically resolve the path
+      helpers: ["handlebars-helper-moment", "foo/*.js"],
+    },
+  },
+});
+
 if (app.get("env") !== "test") {
   app.use(morgan("dev")); // Hook up the HTTP logger
 }

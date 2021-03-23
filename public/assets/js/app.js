@@ -4,6 +4,14 @@ choice.on("click", function () {
   $("#dropdownMenuButton1").text(choiceText);
   console.log(choiceText);
 });
+$(document).ready(() => {
+  const createdAt = $(".createdAt");
+  const text = createdAt.text();
+  const slice = text.slice(0, 26);
+  console.log(slice);
+  const time = new Date(slice).toLocaleTimeString();
+  createdAt.text(`at ${time}`);
+});
 
 $("#add-user").on("click", (event) => {
   event.preventDefault();
