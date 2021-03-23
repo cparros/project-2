@@ -47,7 +47,6 @@ Handlebars, CSS, Javascript, JQuery, Sequelize, NPM, Gulp, MySQL, Travis and ESL
 
 ## Screenshots
 
-<img src= "assets/start.png" style = "width: 50%; height: auto"> <img src="assets/setup.png" style = "width: 50%; height: auto"> <img src="assets/game.png" style = "width: 50%; height: auto"><img src="assets/history.png" style = "width: 50%; height: auto">
 
 ## Contribution
 -Clayton Parros
