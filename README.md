@@ -1,5 +1,12 @@
 # Project 2. Fitness Tracker
 
+[![Build Status](https://travis-ci.com/cparros/project-2.svg?branch=main)](https://travis-ci.com/cparros/project-2)
+![License: MIT License](https://img.shields.io/badge/License-MIT-blue.svg)
+![Code Size](https://img.shields.io/github/languages/code-size/cparros/project-2)
+![Image of Handlebars badge](https://img.shields.io/badge/Handlebars-35%25-orange) 
+![Image of CSS badge](https://img.shields.io/badge/CSS-2.6%25-purple)
+![Image of JavaScript badge](https://img.shields.io/badge/JavaScript-62.4%25-yellow)
+
 
 ## Table of Contents
 - [Description](#Description)
