@@ -13,7 +13,7 @@ module.exports = (db) => {
       password: process.env.USER_PWD,
       isAdmin: false,
     }).then(() => {
-      db.Example.create({
+      db.Workout.create({
         text: "Sample item",
         description: "Adam can't see this",
         UserId: 2,
