@@ -24,6 +24,7 @@
 ## Description
 
 This Project is Fitness Tracker that Allows you to save workouts/calories burned and access them later. You also have the ability to see workouts that other users have completed.
+The application is available for view at Heroku [click here](https://workout-buddy-unc.herokuapp.com/)
 
 ## User Story
 
@@ -47,6 +48,7 @@ Handlebars, CSS, Javascript, JQuery, Sequelize, NPM, Gulp, MySQL, Travis and ESL
 
 ## Screenshots
 
+<img src= "public/assets/images/screenshot1.png" style = "width: 75%; height: auto"><img src= "public/assets/images/screenshot2.png" style = "width: 75%; height: auto"><img src= "public/assets/images/screenshot3.png" style = "width: 75%; height: auto"><img src= "public/assets/images/screenshot4.png" style = "width: 75%; height: auto"><img src= "public/assets/images/screenshot5.png" style = "width: 75%; height: auto">
 
 ## Contribution
 -Clayton Parros
