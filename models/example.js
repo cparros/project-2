@@ -3,6 +3,7 @@ module.exports = function (sequelize, DataTypes) {
     text: DataTypes.STRING,
     description: DataTypes.TEXT,
     calories: DataTypes.INTEGER,
+    updatedAt: DataTypes.DATE,
   });
 
   Workout.associate = function (models) {

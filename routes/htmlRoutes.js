@@ -47,18 +47,32 @@ module.exports = (db) => {
   //load feed page
 
   router.get("/feed", (req, res) => {
-    db.Workout.findAll({
-      where: {
-        id: {
-          [Op.ne]: 0,
+    if (req.isAuthenticated()) {
+      const user = {
+        user: req.session.passport.user,
+        isloggedin: req.isAuthenticated(),
+      };
+
+      db.Workout.findAll({
+        where: {
+          id: {
+            [Op.ne]: 0,
+          },
         },
-      },
-      include: { model: db.User },
-    }).then((allWorkouts) => {
-      res.render("feed", {
-        allWorkouts: allWorkouts,
+        order: [["createdAt", "DESC"]],
+        include: { model: db.User },
+      }).then((allWorkouts) => {
+        // console.log(user);
+        // console.log(activities);
+        res.render("feed", {
+          allWorkouts: allWorkouts,
+          user: user,
+          isloggedin: user.isloggedin,
+        });
       });
-    });
+    } else {
+      res.render("/");
+    }
   });
 
   // Load dashboard page

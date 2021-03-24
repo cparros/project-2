@@ -4,11 +4,12 @@
         <div class="col-2"></div>
         <div class="col-8">
             {{#each allWorkouts}}
-            <div class="card" >
+            <div class="card" id ={{this.dataValues.id}} >
                 <div class="card-body">
-                    <h5 class="card-title">{{this.User.dataValues.firstName}} did {{this.dataValues.text}} </h5>
-                    <h6 class="card-subtitle mb-2 text-muted">on {{this.dataValues.updatedAt}}</h6>
-                    <p class="card-text">{{this.dataValues.description}}</p>
+                    <h5 class="card-title">{{this.User.dataValues.firstName}} did a {{this.dataValues.text}} workout! </h5>
+                    <h6 class="card-subtitle mb-2 text-muted createdAt"> {{this.dataValues.updatedAt}}</h6>
+                    <p class="card-text">{{this.User.dataValues.firstName}} did {{this.dataValues.description}} 
+                        and burnt {{this.dataValues.calories}} calories!</p>
                 </div>
             </div>
             {{/each}}
@@ -16,3 +17,4 @@
         <div class="col-2"></div>
     </div>
 </div>
+
