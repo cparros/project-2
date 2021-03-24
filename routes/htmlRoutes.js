@@ -62,7 +62,8 @@ module.exports = (db) => {
         order: [["createdAt", "DESC"]],
         include: { model: db.User },
       }).then((allWorkouts) => {
-        console.log(allWorkouts)
+        // console.log(user);
+        // console.log(activities);
         res.render("feed", {
           allWorkouts: allWorkouts,
           user: user,
@@ -70,7 +71,7 @@ module.exports = (db) => {
         });
       });
     } else {
-      res.render("dashboard");
+      res.render("/");
     }
   });
 
